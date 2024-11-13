@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Create New Collection</h1>
+    <form action="/create/collection/" method="post">
+        {% csrf_token %}  <label for="title">Title:</label>
+        <input type="text" name="title" id="title" required>
+        <br><br>        
+        {% comment %} <label for="product_type">Product Type:</label>
+        <input type="text" name="product_type" id="product_type" required>
+        <br><br>
+        <label for="vendor">Vendor:</label>
+        <input type="text" name="vendor" id="vendor" required> {% endcomment %}
+        <lable>Select the products you have to add to the Collection </label><br>
+        <select name="products" id="products" multiple>
+            {% for product in products %}
+                <option value={{ product.node.id }}>{{ product.node.title }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <button type="submit">Create Collection</button>            
+    </form>
+        {% if success %}  <p>Collection created successfully!</p>
+        {% endif %}
+{% endblock %}

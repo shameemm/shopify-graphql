@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Create Draft Order</h1>
+    <form action="/create/draft_order/" method="post">
+        {% csrf_token %}  <label for="title">Email:</label>
+        <input type="text" name="email" id="email" required>
+        <br><br>       
+        <label for="title">Variant ID:</label>
+        <input type="text" name="variant_id" id="variant_id" required>
+        <label for="title">Quantity</label>
+        <input type="text" name="quantity" id="quantity" required>
+        <br><br>
+        <button type="submit">Create Draft Order</button>            
+    </form>
+        {% if success %}  
+            <p>Collection created successfully!</p>
+        {% endif %}
+{% endblock %}

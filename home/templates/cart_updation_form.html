@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Update cart</h1>
+    <form action="/storefront/cart/update/" method="post">
+        {% csrf_token %}  <label for="cart_id">Cart ID:</label>
+        <input type="text" name="cart_id" id="cart_id" required>
+        <br><br>        
+        <label for="line_id">Line ID:</label>
+        <input type="text" name="line_id" id="line_id" required>
+        <br><br>
+        <label for="quantity">Quantity:</label>
+        <input type="text" name="quantity" id="quantity" required>
+        <br><br>        
+        <button type="submit">Update Cart</button>            
+    </form>
+        {% if success %}  <p>Cart updated!</p>
+        {% endif %}
+{% endblock %}

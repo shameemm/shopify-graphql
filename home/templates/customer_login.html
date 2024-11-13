@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Create New Product</h1>
+    <form action="/storefront/login/" method="post">
+        {% csrf_token %}  
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" required>
+        <br><br>        
+        <label for="product_type">Password:</label>
+        <input type="text" name="password" id="password" required>
+        <br><br>
+        <button type="submit">Login</button>
+    </form>
+        {% if success %}  <p>Product created successfully!</p>
+        {% endif %}
+{% endblock %}
